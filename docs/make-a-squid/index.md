@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 30
 title: Make a squid
 description: Development flow for building squids
 ---
