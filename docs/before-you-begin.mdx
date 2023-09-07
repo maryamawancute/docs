@@ -13,11 +13,17 @@ The main benefit comes from Archives - data lakes that serve historical blockcha
 
 #### Can I use Subsquid with chain X?
 
-Probably a flowchart here. Mention
- - what exactly does it mean to be EVM-compatible in context of Subsquid
- - what exactly does it mean to have an access to an RPC in context of EVM and Substrate
- - when does it make sense to query Archives directly
- - which latency you're getting in which case
+A widget here that asks up to three questions
+
+ - Is your network compatible with any of the following? \[EVM (*), Substrate, Neither\]
+ - Do you have access to an RPC? \[Yes, No\]
+ - Can you find your network in this list \[...evmOrSubstrateArchivesList, NOT LISTED\]
+
+Depending on the answers some cards with options appear below: \[Archive-only squid, RPC-only squid, Hybrid squid, We cannot help you\]. The cards describe how much horsepower the squid will need from RPC and what latency you'll get.
+
+\* [here](/reference/evm-indexing/rpc-calls) is exactly what we mean by EVM compatible
+
+Missing: when does it make sense to query Archives directly
 
 #### Can I get the data I need using Subsquid?
 
