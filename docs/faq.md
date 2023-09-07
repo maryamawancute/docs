@@ -37,3 +37,50 @@ drop schema squid_processor cascade;
 to reset the processor status.
 
 Squids that store their data in [file-based datasets](/store/file-store) store their status in `status.txt` by default. This can be overridden by defining custom [database hooks](/store/file-store/overview/#filesystem-syncs-and-dataset-partitioning).
+
+### How to add a `preBlockHook` and `postBlockHook` executing before or after each block?
+
+A batch processor receives a list of items grouped into blocks. In order to add custom logic to be executed before/after a block, simply use the iterator over `ctx.blocks`:
+
+```ts
+processor.run(new TypeormDatabase(), async (ctx) => {
+  for (let c of ctx.blocks) {
+    // pre-block hook logic here
+    for (let log of c.logs) {
+    }
+    for (let txn of c.transactions) {
+    }
+    // ...processing of any other data items...
+    // post-block logic here
+  }
+})
+```
+
+### How do I know which events and extrinsics I need on Substrate?
+
+This part depends on the runtime business logic of the chain. The primary and the most reliable source of information is thus the Rust sources for the pallets used by the chain.
+
+For a quick lookup of the documentation and the data format, it is often useful to check `Runtime` section of Subscan (e.g. [Statemine](https://statemine.subscan.io/runtime)). One can see the deployed pallets and drill down to events and extrinsics from there. One can also choose the spec version on the drop down.
+
+
+### Where do I get a type bundle for my chain?
+
+Most chains publish their type bundles as an npm package (for example: [Edgeware](https://www.npmjs.com/package/@edgeware/node-types)). One of the best places to check for the latest version is the [polkadot-js/app](https://github.com/polkadot-js/apps/tree/master/packages/apps-config/src/api/spec) and [polkadot-js/api](https://github.com/polkadot-js/api/tree/master/packages/types-known/src/spec) repositories. It's worth noting, however, that a types bundle is only needed for pre-Metadata v14 blocks, so for recently deployed chains it may be not needed.
+
+:::info
+**Note:** the type bundle format for typegen is slightly different from `OverrideBundleDefinition` of `polkadot.js`. The structure is as follows, all the fields are optional.
+:::
+
+```javascript
+{
+  types: {}, // top-level type definitions, as `.types` option of `ApiPromise`
+  typesAlias: {}, // top-level type alieases, as `.typesAlias` option of `ApiPromise`
+  versions: [ // spec version specific overrides, same as `OverrideBundleDefinition.types` of `polkadot.js`
+    {
+       minmax: [0, 1010] // spec range
+       types: {}, // type overrides for the spec range
+       typesAlias: {}, // type alias overrides for the spec range
+    }
+  ]
+}
+```

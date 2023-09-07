@@ -1,10 +1,10 @@
 ---
 sidebar_position: 10
-title: Overview
+title: Subsquid Archives
 description: Basics, public Archives, Archive registry
 ---
 
-# Squid Archives
+# Subquid Archives
 
 Archive is a specialized data lake for on-chain data, optimized for batch data access. The Archive API is meant to be used as a data source for Squid SDK [processors](/basics/squid-processor). 
 

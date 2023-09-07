@@ -1,0 +1,12 @@
+{
+    "position": 50,
+    "label": "Topics",
+    "collapsible": true,
+    "collapsed": true,
+    "className": "red",
+    "link": {
+      "type": "generated-index",
+      "slug": "/topics",
+      "title": "Subsquid knowledge base"
+    }
+}

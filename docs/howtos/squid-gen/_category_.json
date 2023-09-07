@@ -1,0 +1,13 @@
+{
+  "position": 10,
+  "label": "Autogenerate squids",
+  "collapsible": true,
+  "collapsed": true,
+  "className": "red",
+  "link": {
+    "type": "generated-index",
+    "title": "Autogenerate squids",
+    "description": "Instantly making simple squids",
+    "slug":"/howtos/squid-gen"
+  }
+}

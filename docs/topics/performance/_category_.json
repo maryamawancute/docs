@@ -1,0 +1,12 @@
+{
+    "position": 50,
+    "label": "Performance",
+    "collapsible": true,
+    "collapsed": true,
+    "className": "red",
+    "link": {
+      "type": "generated-index",
+      "slug": "/topics/performance",
+      "title": "Making squids run FAST"
+    }
+}

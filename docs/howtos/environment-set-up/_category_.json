@@ -1,0 +1,13 @@
+{
+  "position": 109,
+  "label": "Environment set up",
+  "collapsible": true,
+  "collapsed": true,
+  "className": "red",
+  "link": {
+    "type": "generated-index",
+    "title": "Environment set up",
+    "description": "Preparing the environment for running squids",
+    "slug":"/howtos/environment-set-up"
+  }
+}

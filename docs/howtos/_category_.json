@@ -1,0 +1,13 @@
+{
+  "position": 109,
+  "label": "How to",
+  "collapsible": true,
+  "collapsed": true,
+  "className": "red",
+  "link": {
+    "type": "generated-index",
+    "title": "How to",
+    "description": "Subsquid cookbook",
+    "slug":"/howtos"
+  }
+}

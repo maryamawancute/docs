@@ -1,0 +1,51 @@
+---
+sidebar_position: 5
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Before you begin
+
+#### Why Subsquid?
+
+The main benefit comes from Archives - data lakes that serve historical blockchain data much faster than possible with RPC. However, even when used without Archives it is a full fledged indexing framework that can retrieve, decode, transform and store blockchain data and, if necessary, serve it over a GraphQL API.
+
+#### Can I use Subsquid with chain X?
+
+Probably a flowchart here. Mention
+ - what exactly does it mean to be EVM-compatible in context of Subsquid
+ - what exactly does it mean to have an access to an RPC in context of EVM and Substrate
+ - when does it make sense to query Archives directly
+ - which latency you're getting in which case
+
+#### Can I get the data I need using Subsquid?
+
+You can make arbitrary network requests within Subsquid indexers, including RPC calls, so yes. The real question is, will you be able to retrieve the historical portion of your data from Archives and benefit from their superior speed.
+
+```mdx-code-block
+<Tabs>
+<TabItem value="evm" label="EVM" default>
+```
+[This page](/evm-indexing/supported-networks) lists Archives for Ethereum-compatible chains. Note that execution traces and state diffs are only available for select networks.
+
+```mdx-code-block
+</TabItem>
+<TabItem value="substrate" label="Substrate">
+```
+See the [list of Archives](/dead) for Substrate-powered networks, such as Polkadot, Kusama and their parachains.
+
+```mdx-code-block
+</TabItem>
+</Tabs>
+```
+
+There are very few tasks involving historical blockchain data where using Subsquid is not helpful. See [Limitations](/topics/limitations).
+
+#### Where can I run Subsquid indexers?
+
+On your own infrastructure or in a [Subsquid-managed cloud](/deploy-squid) that has a free tier.
+
+#### Will I have to pay for using Archives?
+
+No, Archives are funded by their supported networks.

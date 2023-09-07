@@ -1,10 +1,10 @@
 ---
 sidebar_position: 20
-title: Development flow
-description: Development flow for building squids
+title: Persist to database
+description: Building squids that write to Postgres
 ---
 
-# Development flow
+# Persist to database
 
 Below is a general outline of the squid development steps. 
 
