@@ -6,7 +6,7 @@
     "className": "red",
     "link": {
       "type": "generated-index",
-      "slug": "/store",
+      "slug": "/topics/store",
       "title": "Supported data sinks for squid processors"
     }
 }
