@@ -11,28 +11,37 @@ import TabItem from '@theme/TabItem';
 Consider your business requirements and find out
 
 1. How the data should be delivered. Options:
-   - PostgreSQL
-   - GraphQL API served from PostgreSQL
-   - A file-based dataset
-   - Custom store
+   - [PostgreSQL](/howtos/postgres) with an optional [GraphQL API](/topics/graphql-api/) - can be real-time
+   - [file-based dataset](/topics/store/file-store) - usually updates once every few hours
+   - [custom store](/topics/store/custom-database)
 2. What data should be delivered
 3. What data should to be retrieved from blockchain
-4. Where to get the missing data, if any
-
-
+4. Whether you need to mix in any [off-chain data](/howtos/external-api)
 
 ```mdx-code-block
 <Tabs>
 <TabItem value="On EVM" default>
 ```
+**Example: NFT ownership**
 
-A few words on how to find the on-chain data given a business requirement, with two (2) case studies 3-5 sentences each.
+Suppose you want to make a website that shows the image and ownership history for ERC721 NFTs from a certain contract.
+
+For this application it makes sense to deliver data as a GraphQL API. Output data might have `Token`, `Owner` and `Transfer` entities, with e.g. `Token` supplying all the fields necessary to show ownership history and the image.
+
+Data on token mints and ownership history can be derived from `Transfer(address,address,uint256)` events emitted by the contract. To render images, you'll also need to retrieve the off-chain token metadata (usually from IPFS).
+
+**Example: DEX analytics**
+
+Suppose you want to train an ML model from scratch on all trades done on Uniswap since the v3 upgrade.
+
+A delay of few hours typically won't matter for this application, so you may want to deliver the data as files for easier handling. The output could be a simple list of swaps, listing pair, direction and token amounts for each.
+
+All the required data is contained within `Swap` events emitted by pair pool contracts. Uniswap deploys these dynamically, so you will also have to capture `PoolCreated` events from the factory contract to know which `Swap` events are coming from Uniswap and map them to pairs. No off-chain data will be necessary for this task.
 
 ```mdx-code-block
 </TabItem>
 <TabItem value="On Substrate">
 ```
-
 Use [this](/faq/#how-do-i-know-which-events-and-extrinsics-i-need-on-substrate) for the Substrate tab
 
 ```mdx-code-block
