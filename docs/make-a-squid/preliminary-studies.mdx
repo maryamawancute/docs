@@ -20,28 +20,22 @@ Consider your business requirements and find out
 
 ```mdx-code-block
 <Tabs>
-<TabItem value="On EVM" default>
+<TabItem value="EVM examples" default>
 ```
-**Example: NFT ownership**
+**NFT ownership**
 
-Suppose you want to make a website that shows the image and ownership history for ERC721 NFTs from a certain contract.
+Suppose you want to make a website that shows the image and ownership history for ERC721 NFTs from a certain contract. For this application it makes sense to deliver data as a GraphQL API. Output data might have `Token`, `Owner` and `Transfer` entities, with e.g. `Token` supplying all the fields necessary to show ownership history and the image. Data on token mints and ownership history can be derived from `Transfer(address,address,uint256)` events emitted by the contract. To render images, you'll also need to retrieve the off-chain token metadata (usually from IPFS).
 
-For this application it makes sense to deliver data as a GraphQL API. Output data might have `Token`, `Owner` and `Transfer` entities, with e.g. `Token` supplying all the fields necessary to show ownership history and the image.
+**DEX analytics**
 
-Data on token mints and ownership history can be derived from `Transfer(address,address,uint256)` events emitted by the contract. To render images, you'll also need to retrieve the off-chain token metadata (usually from IPFS).
-
-**Example: DEX analytics**
-
-Suppose you want to train an ML model from scratch on all trades done on Uniswap since the v3 upgrade.
-
-A delay of few hours typically won't matter for this application, so you may want to deliver the data as files for easier handling. The output could be a simple list of swaps, listing pair, direction and token amounts for each.
-
-All the required data is contained within `Swap` events emitted by pair pool contracts. Uniswap deploys these dynamically, so you will also have to capture `PoolCreated` events from the factory contract to know which `Swap` events are coming from Uniswap and map them to pairs. No off-chain data will be necessary for this task.
+Suppose you want to train an ML model from scratch on all trades done on Uniswap since the v3 upgrade. A delay of few hours typically won't matter for this application, so you may want to deliver the data as files for easier handling. The output could be a simple list of swaps, listing pair, direction and token amounts for each. All the required data is contained within `Swap` events emitted by pair pool contracts. Uniswap deploys these dynamically, so you will also have to capture `PoolCreated` events from the factory contract to know which `Swap` events are coming from Uniswap and map them to pairs. No off-chain data will be necessary for this task.
 
 ```mdx-code-block
 </TabItem>
-<TabItem value="On Substrate">
+<TabItem value="Substrate examples">
 ```
+TBA
+
 Use [this](/faq/#how-do-i-know-which-events-and-extrinsics-i-need-on-substrate) for the Substrate tab
 
 ```mdx-code-block
